@@ -6,8 +6,6 @@ module LeanTag
         has_many :taggings, class_name: "LeanTag::Tagging", as: :record, inverse_of: :record, dependent: :destroy
         has_many :tags, through: :taggings
 
-        accepts_nested_attributes_for :taggings, allow_destroy: true
-
         scope :with_tags, -> { includes(:tags) }
       end
     end
@@ -57,7 +55,7 @@ module LeanTag
     ##
     # Finds current tags on this record which aren't in the passed list
     def excluded_tags(tag_names)
-      self.with_tags.tags.reject { |t| t.name.in?(tag_names) }
+      self.tags.reject { |t| t.name.in?(tag_names) }
     end
 
     ##
@@ -69,7 +67,7 @@ module LeanTag
     ##
     # Finds current tags on this record which are in the passed list
     def included_tags(tag_names)
-      self.with_tags.tags.select { |t| t.name.in?(tag_names) }
+      self.tags.select { |t| t.name.in?(tag_names) }
     end
 
     ##
