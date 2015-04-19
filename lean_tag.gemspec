@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = LeanTag::VERSION
   s.authors     = ["Matt Ellis"]
   s.email       = ["m.ellis27@gmail.com"]
-  s.homepage    = "http://sudoseng.com"
+  s.homepage    = "https://github.com/waffleau/lean_tag"
   s.summary     = "A lightweight method for tagging content"
   s.description = "And simple and clean implementation of content tagging for Rails 4 and above"
   s.license     = "MIT"
