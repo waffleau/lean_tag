@@ -6,14 +6,19 @@ require_relative 'lean_tag/engine' if defined?(Rails)
 
 module LeanTag
 
-  def self.setup
+  def self.config
     @configuration ||= Configuration.new
-    yield @configuration if block_given?
   end
+
+  def self.setup
+    self.config
+    yield self.config if block_given?
+  end
+
 
   class Configuration
 
-    attr_accessor :delimiter, :force_lowercase, :force_parameterize
+    attr_accessor :delimiter, :force_lowercase, :remove_unused
 
     def initialize
       self.delimiter = ','

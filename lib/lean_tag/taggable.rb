@@ -49,7 +49,7 @@ module LeanTag
     ##
     # Destroy a tag if it's no longer in use
     def destroy_if_unused(tag)
-      if tag.taggings_count && LeanTag.remove_unused
+      if tag.taggings_count && LeanTag.config.remove_unused
         tag.destroy
       end
     end
@@ -97,7 +97,7 @@ module LeanTag
     ##
     # Set a list of tags
     def tag_list=(value)
-      tag_names = value.blank? ? [] : value.split(LeanTag.delimiter)
+      tag_names = value.blank? ? [] : value.split(LeanTag.config.delimiter)
 
       # Get rid of existing tags that aren't in the list
       self.excluded_tags(tag_names).each { |t| self.remove_tag(t) }
@@ -109,7 +109,7 @@ module LeanTag
     ##
     # Returns a delimited list of tag names
     def tag_list
-      self.tags.map(&:name).join(LeanTag.delimiter)
+      self.tags.map(&:name).join(LeanTag.config.delimiter)
     end
 
   end

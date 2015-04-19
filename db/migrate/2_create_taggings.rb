@@ -6,5 +6,7 @@ class CreateTaggings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index [:record_type, :record_id, :filter]
   end
 end
