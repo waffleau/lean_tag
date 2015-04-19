@@ -4,7 +4,7 @@ module LeanTag
     self.table_name = :taggings
 
     belongs_to :record, polymorphic: true, inverse_of: :taggings
-    belongs_to :tag, class_name: "LeanTag::Tag", inverse_of: :taggings
+    belongs_to :tag, class_name: "LeanTag::Tag", inverse_of: :taggings, counter_cache: :taggings_count
 
     validates :record_id, presence: true
     validates :record_type, presence: true

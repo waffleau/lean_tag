@@ -4,7 +4,7 @@ module LeanTag
     self.table_name = :tags
 
     has_many :records, through: :taggings
-    has_many :taggings, class_name: "LeanTag::Tagging", inverse_of: :tag, counter_cache: true
+    has_many :taggings, class_name: "LeanTag::Tagging", inverse_of: :tag
 
     scope :ranked, -> { order("taggings_count DESC") }
 
