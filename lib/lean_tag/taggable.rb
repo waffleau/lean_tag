@@ -44,7 +44,7 @@ module LeanTag
 
         if record.nil?
           self.tags.build(name: tag)
-        elsif !self.taggings.exists?(tag_id: record.id)@
+        elsif !self.taggings.exists?(tag_id: record.id)
           self.taggings.build(tag_id: record.id)
         end
       end
