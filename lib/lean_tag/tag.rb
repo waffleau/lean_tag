@@ -6,6 +6,7 @@ module LeanTag
     has_many :records, through: :taggings
     has_many :taggings, class_name: "LeanTag::Tagging", inverse_of: :tag
 
+    scope :matches, -> (list) { where("tags.name IN (?)", list) }
     scope :ranked, -> { order("taggings_count DESC") }
 
     validates :name, presence: true, uniqueness: true

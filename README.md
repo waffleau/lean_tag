@@ -5,7 +5,7 @@ Most Rails tagging frameworks are either outdated or large and complex. This gem
 
 
 ## History
-0.1.0: Initial release
+0.1: Initial release
 
 
 ## Setup
