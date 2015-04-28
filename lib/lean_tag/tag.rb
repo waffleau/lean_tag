@@ -4,7 +4,7 @@ module LeanTag
     self.table_name = :tags
 
     has_many :records, through: :taggings
-    has_many :taggings, class_name: "LeanTag::Tagging", inverse_of: :tag
+    has_many :taggings, class_name: "LeanTag::Tagging", inverse_of: :tag, dependent: :destroy
 
     scope :matches, -> (list) { where("tags.name IN (?)", list) }
     scope :ranked, -> { order("taggings_count DESC") }

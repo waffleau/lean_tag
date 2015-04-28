@@ -5,7 +5,8 @@ Most Rails tagging frameworks are either outdated or large and complex. This gem
 
 
 ## History
-0.1: Initial release
+0.1.0: Initial release
+1.0.0: Support for multiple tag fields on a single model
 
 
 ## Setup
@@ -21,7 +22,8 @@ Given a simple class such as this:
 
 ```
 class Product < ActiveRecord::Base
-  include LeanTag::Taggable
+  extend LeanTag::Taggable
+  taggable_on :tags
 end
 ```
 

@@ -1,5 +1,5 @@
 module LeanTag
 
-  VERSION = '0.1.14'
+  VERSION = '1.0.0'
 
 end
