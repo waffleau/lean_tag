@@ -1,8 +1,6 @@
 module LeanTag
   module Taggable
-
     def self.extended(base)
-
       def taggable_on(relation="tags")
         extend ClassMethods
 
@@ -24,12 +22,9 @@ module LeanTag
           define_method "#{tag_relation.to_s.singularize}_list=", ->(list) { _set_tag_list(list, tag_relation) }
         end
       end
-
     end
 
-
     module ClassMethods
-
       ##
       # Returns all records which include at least one of the passed tags
       def tagged_with(list, filter="tags")
@@ -39,19 +34,15 @@ module LeanTag
         return self.where(id: taggings.select(:record_id).distinct)
       end
 
-
       ##
       # Get all tags used by this class
       def tags(filter="tags")
         taggings = Tagging.where(record_type: self.name, filter: filter).where(filter: filter)
         return Tag.where(id: taggings.select(:tag_id).distinct)
       end
-
     end
 
-
     module InstanceMethods
-
       ##
       # Adds a single tag on parent save
       def _add_tag(tag, filter="tags")
@@ -124,8 +115,6 @@ module LeanTag
       def _taggings(filter)
         self.send("#{filter}_taggings")
       end
-
     end
-
   end
 end

@@ -1,6 +1,5 @@
 module LeanTag
   class Tagging < ActiveRecord::Base
-
     self.table_name = :taggings
 
     belongs_to :record, polymorphic: true, inverse_of: :taggings
@@ -11,6 +10,5 @@ module LeanTag
     validates :record_id, presence: true
     validates :record_type, presence: true
     validates :tag, presence: true, uniqueness: { scope: [:record_type, :record_id] }
-
   end
 end

@@ -1,6 +1,5 @@
 module LeanTag
   class Tag < ActiveRecord::Base
-
     self.table_name = :tags
 
     has_many :records, through: :taggings
@@ -17,6 +16,5 @@ module LeanTag
         self[:name] = self[:name].downcase if LeanTag.config.force_lowercase
       end
     end
-
   end
 end

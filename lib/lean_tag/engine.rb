@@ -6,8 +6,6 @@ require 'lean_tag/tagging'
 
 module LeanTag
   class Engine < ::Rails::Engine
-
     isolate_namespace LeanTag
-
   end
 end
