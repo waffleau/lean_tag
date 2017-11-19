@@ -20,7 +20,7 @@ module LeanTag
           define_method "add_#{tag_relation.to_s.singularize}!", ->(tag) { _add_tag!(tag, tag_relation) }
           define_method "#{tag_relation.to_s.singularize}_list", ->() { _get_tag_list(tag_relation) }
           define_method "remove_#{tag_relation.to_s.singularize}", ->(tag) { _remove_tag(tag, tag_relation) }
-          define_method "remove_#{tag_relation.to_s.singularize}!", ->(tag) { _remove_tag(tag, tag_relation) }
+          define_method "remove_#{tag_relation.to_s.singularize}!", ->(tag) { _remove_tag!(tag, tag_relation) }
           define_method "#{tag_relation.to_s.singularize}_list=", ->(list) { _set_tag_list(list, tag_relation) }
         end
       end
